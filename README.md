@@ -2,5 +2,15 @@
 
 Build portable (single executable) with [frida](https://www.frida.re/) included.
 
+## requirements
 
-https://bun.com/docs/bundler/executables
+[bun](https://bun.com/docs/bundler/executables)
+
+## build
+
+```sh
+bun i
+bun run build
+```
+
+Then check `./bin/portable`, it is a single executable file with frida included.
