@@ -1,0 +1,24 @@
+{
+  "name": "portable-frida",
+  "module": "index.ts",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "private": true,
+  "scripts": {
+    "build": "bun build index.ts --compile --outfile bin/portable"
+  },
+  "type": "module",
+  "dependencies": {
+    "frida": "^17.5.1"
+  },
+  "trustedDependencies": [
+    "frida"
+  ],
+  "patchedDependencies": {
+    "frida@17.5.1": "patches/frida@17.5.1.patch"
+  }
+}
