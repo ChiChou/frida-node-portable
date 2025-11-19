@@ -35,11 +35,11 @@ function prebuild(cwd: string, platform?: string, arch?: string) {
 }
 
 for (const [target, [platform, arch]] of Object.entries(bunTargets)) {
-  console.log("install prebuild for:", target, platform, arch);
+  console.log("install prebuild for:", target);
   prebuild(cwd, platform, arch);
 
   // "build": "bun build index.ts --compile --outfile bin/portable"
-  console.log("build bun binary for:", target, platform, arch);
+  console.log("build bun binary for:", target);
   cp.spawnSync(
     process.execPath,
     [
@@ -49,7 +49,7 @@ for (const [target, [platform, arch]] of Object.entries(bunTargets)) {
       target,
       "--compile",
       "--outfile",
-      path.join(__dirname, "..", "bin", target),
+      path.join(__dirname, "..", "bin", target.replace("bun-", "portable-")),
     ],
     {
       stdio: "inherit",
